@@ -1430,7 +1430,8 @@ pre .id {
 .archive-article-date {
   color: #999;
   margin-right: 7.6923%;
-  float: right
+  float: right;
+  font-family: "Microsoft YaHei"
 }
 
 .archive-article-date .icon {
@@ -2260,10 +2261,8 @@ pre .id {
 }
 
 .article-info-index.article-info {
-  padding-top: 20px;
   margin: 30px 7.6923% 0;
   min-height: 72px;
-  border-top: 1px solid #ddd
 }
 
 .article-info-post.article-info {
@@ -2722,8 +2721,8 @@ pre .id {
 
 .page-reward .reward-p {
   color: #fff;
-  font-weight: 700;
-  text-shadow: 1px 1px 1px #45b9e0
+  font-weight: 500;
+  font-family: 'Microsoft YaHei'
 }
 
 .page-reward .reward-p .icon {
@@ -2732,9 +2731,11 @@ pre .id {
 }
 
 .page-reward .reward-type {
+  font-family: Microsoft YaHei;
   font-size: 16px;
+  font-weight: bold;
   display: block;
-  color: #4d4d4d;
+  color: #ffffff;
   margin: 20px 0 0
 }
 
@@ -3073,7 +3074,7 @@ pre .id {
 }
 
 .tooltip-top .tooltip-inner {
-  background: rgba(36, 193, 246, .9);
+  background: rgba(19, 176, 229, 1);
   padding: 40px;
   -webkit-transform: translate3d(0, 100%, 0);
   transform: translate3d(0, 100%, 0);
