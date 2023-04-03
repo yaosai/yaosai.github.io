@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>自适应页面示例</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* 这里是样式表，用于控制页面布局和样式 */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .box {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      width: 48%;
+      margin-bottom: 20px;
+    }
+
+    .box img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .box h2 {
+      font-size: 24px;
+      margin: 10px 0;
+    }
+
+    .box p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 10px 0;
+    }
+
+    .footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    button {
+      display: block;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #333;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      margin-bottom: 20px;
+      margin: auto;
+    }
+    
+    button:hover {
+      background-color: #666;
+    }
+
+    /* 这里是媒体查询，用于在不同设备上适应不同的屏幕尺寸 */
+    @media screen and (max-width: 768px) {
+      .box {
+        width: 100%;
+      }
+    }
+  </style>
+  <script>
+    function randomPlace() {
+      var url = "https://127.0.0.1:8080"; // 这里暂时使用JSONPlaceholder网站提供的假数据API
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", url);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          document.getElementById("result-display").innerHTML = xhr.responseText;
+        } else {
+          document.getElementById("result-display").innerHTML = "请求出错：" + xhr.status;
+        }
+      };
+      xhr.send();
+    }
+    function randomRelation() {
+      var url = "https://127.0.0.1:8080"; // 这里暂时使用JSONPlaceholder网站提供的假数据API
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", url);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          document.getElementById("result-display").innerHTML = xhr.responseText;
+        } else {
+          document.getElementById("result-display").innerHTML = "请求出错：" + xhr.status;
+        }
+      };
+      xhr.send();
+    }
+    function randomArticle() {
+      var url = "https://127.0.0.1:8080"; // 这里暂时使用JSONPlaceholder网站提供的假数据API
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", url);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          document.getElementById("result-display").innerHTML = xhr.responseText;
+        } else {
+          document.getElementById("result-display").innerHTML = "请求出错：" + xhr.status;
+        }
+      };
+      xhr.send();
+    }
+  </script>
+</head>
+<body>
+  <p id="result-display" class=""></p>
+  <button onclick="randomPlace()">地点</button>
+  <button onclick="randomRelation()">关系</button>
+  <button onclick="randomArticle()">物品</button>
+</body>
