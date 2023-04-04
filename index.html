@@ -3,15 +3,54 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>自适应页面示例</title>
+  <title>随机建议</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"> -->
   <style>
     /* 这里是样式表，用于控制页面布局和样式 */
     body {
       font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
+      background-color: #fff;
       margin: 0;
       padding: 0;
+
+    }
+
+    .pageBox {
+      width: 100%;
+
+    }
+
+    .content {
+      margin-bottom: 20px;
+      margin-top: 10px;
+    }
+
+    .contentbox {
+      border: 1px solid #888888;
+      margin: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      height: 60px;
+      text-align: center;
+      vertical-align: center;
+      line-height: 25px;
+      font-size: 24px;
+      display: flex;
+      /*实现垂直居中*/
+      align-items: center;
+      /*实现水平居中*/
+      justify-content: center;
+      font-weight: bold;
+
+    }
+
+    .imageClass {
+      margin: 10px;
+      display: flex;
+      align-items: center;
+      /*实现水平居中*/
+      justify-content: center;
     }
 
     .container {
@@ -68,25 +107,30 @@
       padding: 20px;
     }
 
-    button {
-      display: block;
-      padding: 10px 20px;
-      font-size: 16px;
-      font-weight: bold;
-      color: #fff;
-      background-color: #333;
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .button {
+      background-color: #dc270e;
+      color: white;
+      padding: 10px;
+      font-size: 24px;
       border: none;
-      border-radius: 5px;
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
       cursor: pointer;
-      transition: background-color 0.3s ease-in-out;
-      margin-bottom: 20px;
-      margin: auto;
+      margin: 0 10px;
+      width: 160px;
+      box-shadow: 2px 2px 5px #888888;
     }
-    
-    button:hover {
-      background-color: #666;
-    }
+
+    /* .button:hover {
+      background-color: #e2a711;
+    } */
+
 
     /* 这里是媒体查询，用于在不同设备上适应不同的屏幕尺寸 */
     @media screen and (max-width: 768px) {
@@ -96,50 +140,67 @@
     }
   </style>
   <script>
+    var place = ["皇宫", "城堡", "书店", "银行", "浴室", "卧室", "战壕", "邮轮", "公园", "电影院", "图书馆", "游乐场", "美术馆", "指挥部", "咖啡厅", "剧院", "泳池", "健身房", "瑜伽馆", "酒吧", "美容院", "停车场", "加油站", "仓库", "邮局", "警察局", "消防局", "医院", "空间站", "学校", "商场", "体育馆", "水族馆", "菜市场", "监狱", "港口", "码头", "海盗船", "无人岛", "少林寺", "衙门", "金字塔", "神庙", "竞技场", "遗迹", "丛林", "厨房", "军机处", "翰林院", "客栈", "衙门", "庄园", "售票处", "锅炉房", "发电厂", "夜之城", "夜总会", "办公室", "地窖", "菜市口", "地狱", "众神殿", "古墓", "小巷", "赌场"];
     function randomPlace() {
-      var url = "https://127.0.0.1:8080"; // 这里暂时使用JSONPlaceholder网站提供的假数据API
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", url);
-      xhr.onload = function () {
-        if (xhr.status === 200) {
-          document.getElementById("result-display").innerHTML = xhr.responseText;
-        } else {
-          document.getElementById("result-display").innerHTML = "请求出错：" + xhr.status;
-        }
-      };
-      xhr.send();
+      var randomIndex = Math.floor(Math.random() * place.length);
+      document.getElementById("result-display").innerHTML = place[randomIndex];
     }
+    var relation = ["领导和员工", "老师和学生", "医生和病人", "律师和法官", "销售和客户", "雇主和雇员", "政治家和选民", "警察和公民", "警察和小偷", "护士和病人", "飞行员和乘客", "工人和工头", "创作者和书迷", "运动员和球迷", "企业家和投资者", "士兵和长官", "作家和读者", "摄影师和模特", "老师和家长", "明星和粉丝", "黑白无常", "菜农和厨子", "偶像组合", "队长和球员", "仇人", "保安和保洁", "老大和马仔"];
     function randomRelation() {
-      var url = "https://127.0.0.1:8080"; // 这里暂时使用JSONPlaceholder网站提供的假数据API
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", url);
-      xhr.onload = function () {
-        if (xhr.status === 200) {
-          document.getElementById("result-display").innerHTML = xhr.responseText;
-        } else {
-          document.getElementById("result-display").innerHTML = "请求出错：" + xhr.status;
-        }
-      };
-      xhr.send();
+      var randomIndex = Math.floor(Math.random() * relation.length);
+      document.getElementById("result-display").innerHTML = relation[randomIndex];
     }
-    function randomArticle() {
-      var url = "https://127.0.0.1:8080"; // 这里暂时使用JSONPlaceholder网站提供的假数据API
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", url);
-      xhr.onload = function () {
-        if (xhr.status === 200) {
-          document.getElementById("result-display").innerHTML = xhr.responseText;
-        } else {
-          document.getElementById("result-display").innerHTML = "请求出错：" + xhr.status;
-        }
-      };
-      xhr.send();
+    var items = ["铅笔", "直尺", "圆规", "三角板", "纸张", "书籍", "电脑", "手机", "平板电脑", "电视", "投影仪", "打印机", "扫描仪", "鼠标", "键盘", "耳机", "麦克风", "手机壳", "电脑包", "线缆", "电池", "充电器", "漏斗", "滤纸", "夹子", "胶带", "透明胶带", "修正带", "削笔机", "订书机", "订书针", "计算器", "复印机", "字典", "地球仪", "收音机", "音响", "背包", "旅行箱", "衣架", "鞋架", "帽架", "衣服", "鞋子", "帽子", "袜子", "手套", "围巾", "毛衣", "外套", "裤子", "裙子", "连衣裙", "睡衣", "内衣", "毛巾", "浴巾", "毛毯", "羽绒被", "枕头", "被套", "床单", "枕套", "椅子", "沙发", "桌子", "椅垫", "地毯", "灯", "电风扇", "空气净化器", "空调", "热水壶", "咖啡机", "榨汁机", "搅拌器", "烤箱", "微波炉", "电饭煲", "饮水机", "电磁炉", "火锅", "烧烤架", "煮锅", "炒锅", "烤盘", "刀", "筷子", "切菜板", "碗", "盘子", "筷子架", "垃圾桶", "扫把", "簸箕", "抹布", "垃圾袋", "洗衣机", "干衣机", "洗衣粉", "护发素", "洗发水", "沐浴露", "牙膏", "牙刷", "香皂", "化妆品", "染发剂", "香水", "柜子", "衣柜", "书柜", "橱柜", "电视柜", "苹果", "香蕉", "橙子", "葡萄", "草莓", "桃子", "芒果", "菠萝", "西瓜", "木瓜", "柚子", "火龙果", "石榴", "柠檬", "柿子", "橄榄", "樱桃", "荔枝", "龙眼", "榴莲", "柑橘", "柑子", "柠檬", "芭乐", "柚子", "酸橙", "莲雾", "红毛丹", "枣", "奇异果", "梨", "杏子", "柑橘类", "草莓", "黑莓", "蓝莓", "树莓", "香瓜", "水蜜桃", "李子", "柰子", "沙果", "椰子", "柠檬", "柚子", "菠萝蜜", "柚子茶", "人参果", "脆皮橙", "沙拉", "米饭", "面条", "包子", "馒头", "馄饨", "水饺", "烤鸭", "火锅", "烤肉", "煎饼果子", "炸鸡", "汉堡", "披萨", "牛排", "炒饭", "炒面", "红烧肉", "麻辣香锅", "烤串", "烤鱼", "蛋糕", "奶茶", "汤圆", "粽子", "排骨", "牛肉", "鸡蛋", "芝士", "披萨", "豆腐", "猪蹄", "烤乳猪", "麻辣烫", "油条", "汽车", "自行车", "摩托车", "公共汽车", "地铁", "出租车", "飞机", "火车", "轮船", "直升机", "出租车", "巴士", "电动车", "轻轨", "高铁", "马车", "滑板", "跑车", "购物车", "梳子", "香囊", "扇子", "烟袋", "竹笛", "琴瑟", "弓箭", "盾牌", "甲骨文", "剑", "盔甲", "魔法杖", "魔法帽", "飞毯", "神灯", "飞天扫帚", "卷轴", "水晶球", "护身符", "药剂", "魔镜", "象牙", "钻石", "蘑菇", "元宵", "丝袜"];
+    function randomItems() {
+      var randomIndex = Math.floor(Math.random() * items.length);
+      document.getElementById("result-display").innerHTML = items[randomIndex];
+    }
+    var movie = ["西部片","公路片","科幻片","恐怖片","纪录片","战争片","动画片","AV","悬疑片","犯罪片","惊悚片","音乐剧","动作片","TVB","冒险片","灾难片","玄幻片"];
+    function randomMovie() {
+      var randomIndex = Math.floor(Math.random() * movie.length);
+      document.getElementById("result-display").innerHTML = movie[randomIndex];
+    }
+    var lines = ["老许，你要老婆不要","你好骚啊","凛冬将至","生命就像一盒巧克力，你永远不知道下一颗会是什么口味","别人笑我太疯癫，我笑他人看不穿","为了胜利，向我开炮","得加钱","把我的意大利炮拉过来","整个晋西北已经乱成一锅粥了","你行你上啊","爱情像糖，甜到忧伤","没有物质的爱情就是一团散沙","什么是踏马的惊喜","阿伟已经死了，我说的","天王盖地虎，宝塔镇河妖","别说话，吻我","优势在我","恭迎龙王","一米阳光，半米忧伤","不管黑猫白猫，抓到耗子的才是好猫"];
+    function randomLines() {
+      var randomIndex = Math.floor(Math.random() * lines.length);
+      document.getElementById("result-display").innerHTML = lines[randomIndex];
+    }
+    var emo = ["忐忑不安","心满意足","兴高采烈","气急败坏","呆若木鸡","无精打采","愁眉苦脸","阴阳怪气","怒发冲冠","痛不欲生","泪如雨下","忽冷忽热","心花怒放","镇定自若","喜极而泣","无精打采","悲从中来","神经兮兮","疯疯癫癫"];
+    function randomEmo() {
+      var randomIndex = Math.floor(Math.random() * emo.length);
+      document.getElementById("result-display").innerHTML = emo[randomIndex];
     }
   </script>
 </head>
+
 <body>
-  <p id="result-display" class=""></p>
-  <button onclick="randomPlace()">地点</button>
-  <button onclick="randomRelation()">关系</button>
-  <button onclick="randomArticle()">物品</button>
+  <div class="pageBox">
+
+    <div class="imageClass">
+      <img src="logo.jpg" width="200" />
+
+    </div>
+    <div class="content">
+      <div id="result-display" class="contentbox">
+
+      </div>
+    </div>
+    <div class="row">
+      <button onclick="randomPlace()" type="button" class="button">地点</button>
+      <button onclick="randomRelation()" type="button" class="button">关系</button>
+    </div>
+    <div class="row">
+      <button onclick="randomItems()" type="button" class="button">物品</button>
+      <button onclick="randomMovie()" type="button" class="button">影片</button>
+    </div>
+    <div class="row">
+      <button onclick="randomLines()" type="button" class="button">台词</button>
+      <button onclick="randomEmo()" type="button" class="button">情绪</button>
+    </div>
+  </div>
+
+  <!-- 引入Bootstrap JavaScript库 -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <!-- <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script> -->
 </body>
